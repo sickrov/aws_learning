@@ -23,8 +23,8 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-region: eu-west-1
-          role-to-assume: arn:aws:iam::318142138553:role/S3GithubReadOnly
+          role-to-assume: arn:aws:iam::947247140022:role/S3GithubReadOnly
           role-session-name: OIDCSession
  
-      - run: aws s3 cp s3://githuboidctesting/README.md README.md
+      - run: aws sts get-caller-identity
         shell: bash
