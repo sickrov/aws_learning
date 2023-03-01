@@ -25,5 +25,5 @@ jobs:
       - run: aws sts get-caller-identity
         shell: bash
       
-      - run: aws s3 ls
+      - run: aws s3 ls s3://celsius-tfstates/ --recursive
         shell: bash
