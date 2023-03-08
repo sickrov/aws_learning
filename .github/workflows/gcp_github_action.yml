@@ -24,5 +24,6 @@ jobs:
       run: |-
         gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
         gcloud auth list
+        gcloud auth activate-service-account github-demo-sa@onboarding-host-98efbf97812843.iam.gserviceaccount.com
         gcloud config set account onboarding-host-98efbf97812843
         gcloud storage buckets list
