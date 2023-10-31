@@ -15,12 +15,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
  
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
+      #- name: Configure AWS Credentials
+      #  uses: aws-actions/configure-aws-credentials@v1
+      #  with:
+      #    aws-region: eu-west-1
+      #    role-to-assume: ${{ secrets.ARNROLE }}
+      #    role-session-name: OIDCSession
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1 # https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions
         with:
-          aws-region: eu-west-1
-          role-to-assume: ${{ secrets.ARNROLE }}
-          role-session-name: OIDCSession
+          role-to-assume: arn:aws:iam::910202846130:role/CdkStack-githubActionsRol-GitHubActionmauvedex8DB7-ERTHOBX3E6HU
+          role-session-name: GitHub_to_AWS_via_FederatedOIDC
+          aws-region: ${{ inputs.region }}
  
       - run: aws sts get-caller-identity
         shell: bash
