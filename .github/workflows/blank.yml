@@ -27,7 +27,6 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::910202846130:role/CdkStack-githubActionsRol-GitHubActionmauvedex8DB7-ERTHOBX3E6HU
           role-session-name: GitHub_to_AWS_via_FederatedOIDC
-          aws-region: ${{ inputs.region }}
  
       - run: aws sts get-caller-identity
         shell: bash
