@@ -14,13 +14,13 @@ jobs:
       uses: 'google-github-actions/auth@v0.3.1'
       with:
           create_credentials_file: 'true'
-          workload_identity_provider: 'projects/286125277498/locations/global/workloadIdentityPools/wid-pool/providers/wid-pool'
-          service_account: 'github-demo-sa@onboarding-host-98efbf97812843.iam.gserviceaccount.com'
+          workload_identity_provider: 'projects/405423052163/locations/global/workloadIdentityPools/training-pool/providers/training-pool'
+          service_account: 'github-demo-sa@digital-bonfire-410512.iam.gserviceaccount.com'
     - id: 'gcloud'
       name: 'gcloud'
       run: |-
         gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
         gcloud auth list
-        gcloud auth activate-service-account github-demo-sa@onboarding-host-98efbf97812843.iam.gserviceaccount.com
-        gcloud config set account onboarding-host-98efbf97812843
+        gcloud auth activate-service-account github-demo-sa@digital-bonfire-410512.iam.gserviceaccount.com
+        gcloud config set project digital-bonfire-410512
         gcloud storage buckets list
