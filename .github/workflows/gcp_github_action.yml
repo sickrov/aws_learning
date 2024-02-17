@@ -19,7 +19,7 @@ jobs:
     - id: 'gcloud'
       name: 'gcloud'
       run: |-
-        gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
+        gcloud auth login --brief --key-file="${{ steps.auth.outputs.credentials_file_path }}"
         gcloud auth list
         gcloud auth activate-service-account github-demo-sa@digital-bonfire-410512.iam.gserviceaccount.com
         gcloud config set project digital-bonfire-410512
