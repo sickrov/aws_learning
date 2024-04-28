@@ -26,7 +26,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v1 # https://github.com/marketplace/actions/configure-aws-credentials-action-for-github-actions
         with:
           aws-region: "us-east-1"
-          role-to-assume: arn:aws:iam::079832209393:role/sts-lab-2-target
+          role-to-assume: arn:aws:iam::911587477020:oidc-provider/token.actions.githubusercontent.com
           role-session-name: OIDCSession
           
  
